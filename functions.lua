@@ -1,5 +1,5 @@
 function guns.register_ammo(modname, ammo)
-	-- Information on amo object
+	-- Information on ammo object
 	-- name -> name of ammo eg: 22cal_incendiary
 	-- max_ammo -> The maximum ammo allowed in a stack
 	-- damage -> Damage done on player impact -> Not is use currently

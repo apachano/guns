@@ -1,0 +1,22 @@
+guns.register_ammo("modname", {
+	-- name -> name of ammo eg: 22cal_incendiary
+	-- max_ammo -> The maximum ammo allowed in a stack
+	-- damage -> Damage done on player impact -> Not is use currently
+	-- entity -> The entity when the ammo is fired
+	-- entity.visual
+	-- entity.visual_size
+	-- entity.textures
+	-- entity.hit_player -> Function called when hits player, parameters are (self, player)
+	-- entity.hit_node -> Function called when hits node, parameters are (self, pos, node)
+})
+
+guns.register_gun("modname", {
+	-- Information on amo object
+	-- name -> name of gun eg: ruger_22
+	-- ammo -> item name of the ammo eg: if your mod "pistols" registers an ammo with 
+	-- 		  ammo.name = "22cal_incendiary" then you should put "pistols:22cal_incendiary"
+	-- inventory_image -> the inventory image for the gun
+	-- weild_image -> Separate weild imge if you want diferent from inventory image
+	-- sound.fire -> Sound to be played when the gun successfully fires
+	-- sound.empty -> Sound to be player if the gun is empty and player tries to fire
+})
