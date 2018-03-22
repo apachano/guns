@@ -5,7 +5,7 @@ guns.register_ammo("modname", {
 	-- entity -> The entity when the ammo is fired
 	-- entity.visual
 	-- entity.visual_size
-	-- entity.textures
+	-- entity.textures -> A table of textures for the entity
 	-- entity.hit_player -> Function called when hits player, parameters are (self, player)
 	-- entity.hit_node -> Function called when hits node, parameters are (self, pos, node)
 })

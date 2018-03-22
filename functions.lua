@@ -6,7 +6,7 @@ function guns.register_ammo(modname, ammo)
 	-- entity -> The entity when the ammo is fired
 	-- entity.visual
 	-- entity.visual_size
-	-- entity.textures
+	-- entity.textures -> A table of textures for the bullet entity
 	-- entity.hit_player -> Function called when hits player, parameters are (self, player)
 	-- entity.hit_node -> Function called when hits node, parameters are (self, pos, node)
 
@@ -123,14 +123,16 @@ function guns.register_gun(modname, gun)
 		--liquids_pointable
 		on_use = function(itemstack, user, pointed_thing)
 				local inventory = user:get_inventory()
+
+				
 				if inventory:contains_item("main", gun.ammo) then
 					--Fire gun
 					inventory:remove_item("main", gun.ammo)
 					minetest.sound_play(gun.sound_fire, {object=user})
 					local aim = user:get_look_dir()
-					local pos = user:getpos()
+					local pos = user:get_pos()
 					local bullet = minetest.add_entity({x=pos.x,y=pos.y+1.5,z=pos.z}, gun.ammo .. "_entity")
-					bullet:setvelocity({x=aim.x*19, y=aim.y*19, z=aim.z*19})
+					bullet:set_velocity({x=aim.x*19, y=aim.y*19, z=aim.z*19})
 				else
 					--Play empty noise
 					minetest.sound_play(gun.sound_empty, {object=user})
