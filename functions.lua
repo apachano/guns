@@ -136,7 +136,7 @@ function guns.register_gun(modname, gun)
 					minetest.sound_play(gun.sound_fire, {object=user})
 					local aim = user:get_look_dir()
 					local pos = user:get_pos()
-					local bullet = minetest.add_entity({x=pos.x,y=pos.y+1.5,z=pos.z}, gun.ammo .. "_entity")
+					local bullet = minetest.add_entity({x=pos.x,y=pos.y+1.5,z=pos.z}, "guns:bullet")
 					local ammo = guns.ammo[gun.ammo]
 					bullet:set_properties({
 						visual = ammo.entity.visual,
@@ -146,7 +146,8 @@ function guns.register_gun(modname, gun)
 						hit_mob = ammo.entity.hit_mob,
 						hit_node = ammo.entity.hit_node
 					})
-					bullet:set_velocity({x=aim.x*19, y=aim.y*19, z=aim.z*19})
+					bullet:set_velocity({x=aim.x*gun.power, y=aim.y*gun.power, z=aim.z*gun.power})
+					bullet:set_acceleration({x=0, y=-1, z=0})
 				else
 					--Play empty noise
 					minetest.sound_play(gun.sound_empty, {object=user})
